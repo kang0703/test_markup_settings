@@ -1,0 +1,154 @@
+/* 컨트롤 버튼 제어 */
+
+// 공통
+$page-common-border-width:1px;
+$page-common-border-style:solid;
+$page-common-border-color:#999;
+
+$page-common-paging-size: 25px;
+
+
+// 숫자형
+$page-number-text: false;
+$page-number-font-size: 13px;
+$page-number-color: #000;
+$page-num-bg-color: #000;
+
+
+// 버튼형
+$page-button-font: 13px;
+$page-button-radius: 3px;
+
+
+.list-paging-wrap{
+	text-align: center;
+	a, strong{
+		display:inline-block;
+		@include box-sizing;
+		line-height:$page-common-paging-size - 2;
+	}
+	.pg-wrap{
+		font-size:0;
+	}
+	.pg-cont, .num-page{
+		display:inline-block;
+		vertical-align: middle;
+	}
+	.pg-cont{
+		a{
+			margin:0 2px;
+			background-color:#fff;
+			font-size: $page-number-font-size;
+			color: $page-number-color;
+			border-width: $page-common-border-width;
+			border-style: $page-common-border-style;
+			border-color: $page-common-border-color;
+			svg{
+				vertical-align: middle;
+			}
+			i.fas{
+				&:before{
+					display:none;
+					@if false == $page-number-text {
+						display:inline-block;
+						font-size:13px;
+						vertical-align: middle;
+					}
+				}
+			}
+			@if false == $page-number-text {
+				position: relative;
+				width:$page-common-paging-size;
+				height:$page-common-paging-size;
+			}
+			span{
+				@if false == $page-number-text {
+					border: 0 !important;
+					clip: rect(0 0 0 0) !important;
+					height: 1px !important;
+					margin: -1px !important;
+					overflow: hidden !important;
+					padding: 0 !important;
+					position: absolute !important;
+					width: 1px !important;
+				}
+			}
+		}
+		&.previous{
+			a{
+				&.prev{
+					i.fas{
+						//
+					}
+					span{
+						//
+					}
+				}
+				&.max-prev{
+					i.fas{
+						//
+					}
+					span{
+						//
+					}
+				}
+			}
+		}
+		&.next{
+			a{
+				&.nex{
+					i.fas{
+						//
+					}
+					span{
+						//
+					}
+				}
+				&.max-nex{
+					i.fas{
+						//
+					}
+					span{
+						//
+					}
+				}
+			}
+		}
+	}
+	.num-page{
+		a, strong{
+			// display:inline-block;
+			font-size: $page-number-font-size;
+			width:$page-common-paging-size;
+			height:$page-common-paging-size;
+			margin:0 2px;
+		}
+		a{
+			background-color:yellow;
+			border-width: $page-common-border-width;
+			border-style: $page-common-border-style;
+			border-color: $page-common-border-color;
+		}
+		strong{
+			color:#fff;
+			background-color:green;
+			border:1px solid red;
+			font-weight:bold;
+		}
+	}
+
+
+	// 더보기
+	.plus-list-btn{
+		text-align:center;
+		margin-top:30px;
+		@include mq($mobile) {
+			margin-top:20px;
+		}
+		.btn{
+			width:200px;
+			font-size: $page-button-font;
+			border-radius: $page-button-radius;
+		}
+	}
+}
